@@ -1,13 +1,36 @@
 #!/bin/bash
 
 # downloads a fresh copy of the beacon and all shards to $H, remove any existing tar files
-$H=~/
+
+#set download location, root is default
+H=/root/
 
 # check for axel
 sudo apt install axel
 
 rm -rfv ${H}/beacon.tar.zst
-sudo axel -a -n 40 -o {$H} https://bootstrap.incognito.org/beacon.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/beacon.tar.zst
 
 rm -rfv ${H}/shard0.tar.zst
-sudo axel -a -n 40 -o {$H} https://bootstrap.incognito.org/shard0.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard0.tar.zst
+
+rm -rfv ${H}/shard1.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard1.tar.zst
+
+rm -rfv ${H}/shard2.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard2.tar.zst
+
+rm -rfv ${H}/shard3.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard3.tar.zst
+
+rm -rfv ${H}/shard4.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard4.tar.zst
+
+rm -rfv ${H}/shard5.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard5.tar.zst
+
+rm -rfv ${H}/shard6.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard6.tar.zst
+
+rm -rfv ${H}/shard7.tar.zst
+sudo axel -a -n 40 -o ${H} https://bootstrap.incognito.org/shard7.tar.zst
