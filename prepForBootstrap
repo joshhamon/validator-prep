@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# downloads a fresh copy of the beacon and all shards to $H, remove any existing tar files
+$H=~/
+
+# check for axel
+sudo apt install axel
+
+rm -rfv ${H}/beacon.tar.zst
+sudo axel -a -n 40 -o {$H} https://bootstrap.incognito.org/beacon.tar.zst
+
+rm -rfv ${H}/shard0.tar.zst
+sudo axel -a -n 40 -o {$H} https://bootstrap.incognito.org/shard0.tar.zst
