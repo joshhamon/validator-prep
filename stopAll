@@ -1,0 +1,6 @@
+# stops all incognito docker containers
+
+docker container stop $(docker container ls -q --filter name=inc_mainnet_*)
+
+# if needed uncomment the line below
+#sudo docker system prune --all
