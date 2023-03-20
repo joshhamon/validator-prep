@@ -11,7 +11,7 @@ while getopts 'p:' OPTION; do
       echo "you have supplied the -t option"
       ;;
     ?)
-      echo "script usage: $(basename \$0) [-l] [-h] [-a somevalue]" >&2
+      echo "script usage: $(basename \$0) [-p]" >&2
       exit 1
       ;;
   esac
