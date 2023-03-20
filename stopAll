@@ -2,5 +2,18 @@
 
 docker container stop $(docker container ls -q --filter name=inc_mainnet_*)
 
-# if needed uncomment the line below
-#sudo docker system prune --all
+while getopts 'p:' OPTION; do
+  case "$OPTION" in
+    p)
+      docker system prune --all
+      ;;
+    t)
+      echo "you have supplied the -t option"
+      ;;
+    ?)
+      echo "script usage: $(basename \$0) [-l] [-h] [-a somevalue]" >&2
+      exit 1
+      ;;
+  esac
+done
+shift "$(($OPTIND -1))"
