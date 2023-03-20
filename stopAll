@@ -1,19 +1,19 @@
 # stops all incognito docker containers
 
-echo "Attempting to stop any containers named inc_mainnet_*"
+echo "Attempting to stop any containers named inc_mainnet_*\n"
 docker container stop $(docker container ls -q --filter name=inc_mainnet_*)
 
 while getopts 'pt' OPTION; do
   case "$OPTION" in
     p)
-        echo "Attempting to prune all stopped containers"
+        echo "Attempting to prune all stopped containers\n"
       docker system prune --all
       ;;
     t)
-      echo "you have supplied the -t option, this is for testing purposes only"
+      echo "You have supplied the -t option, this is for testing purposes only"
       ;;
     ?)
-      echo "Option not recognized. Add a -p to prune all stopped containers." >&2
+      echo "\nOption not recognized. Add a -p to prune all stopped containers.\n" >&2
       exit 1
       ;;
   esac
