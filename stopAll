@@ -6,16 +6,14 @@ docker container stop $(docker container ls -q --filter name=inc_mainnet_*)
 while getopts 'pt' OPTION; do
   case "$OPTION" in
     p)
-        printf "Attempting to prune all stopped containers\n"
-        printf "Attempting to prune all stopped containers\n"
+        echo -e "Attempting to prune all stopped containers\n"
       docker system prune --all
       ;;
     t)
-      printf "You have supplied the -t option, this is for testing purposes only"
+      echo -e "You have supplied the -t option, this is for testing purposes only.\n"
       ;;
     ?)
-      printf "\nOption not recognized. Add a -p to prune all stopped containers.\n" >&2
-      printf "\nOption not recognized. Add a -p to prune all stopped containers.\n" >&2
+      echo -e "\nOption not recognized. Add a -p to prune all stopped containers.\n" >&2
       exit 1
       ;;
   esac
