@@ -3,17 +3,17 @@
 echo "Attempting to stop any containers named inc_mainnet_*"
 docker container stop $(docker container ls -q --filter name=inc_mainnet_*)
 
-while getopts 'p:' OPTION; do
+while getopts 'pt' OPTION; do
   case "$OPTION" in
     p)
         echo "Attempting to prune all stopped containers"
       docker system prune --all
       ;;
     t)
-      echo "you have supplied the -t option"
+      echo "you have supplied the -t option, this is for testing purposes only"
       ;;
     ?)
-      echo "script usage: $(basename \$0) [-p]" >&2
+      echo "Option not recognized. Add a -p to prune all stopped containers." >&2
       exit 1
       ;;
   esac
