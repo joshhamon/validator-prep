@@ -37,7 +37,7 @@ while getopts 'n:bs:' OPTION; do
         s="$OPTARG"
         echo -e "Shard $s selected.\n"
         rm -rfv $dataDir$n/mainnet/block/shard*
-        ss=$fileDir$s".tar.zst"
+        ss=$fileDir"shard"$s".tar.zst"
         tar -I zstd -xvf $ss --directory=$dataDir$n/mainnet/block/
         echo -e "\n-s option complete\n"
         ;;
