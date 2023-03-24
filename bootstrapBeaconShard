@@ -1,0 +1,27 @@
+#!/bin/bash
+
+while getopts 'n:bs:' OPTION; do
+  case "$OPTION" in
+    n)
+        nn=${n}
+        echo -e "Preparing inc_mainnet_${n}\n"
+      docker stop inc_mainnet_${n}
+      ;;
+    b)
+      echo -e "You have supplied the -b option, the beacon will be bootstrapped.\n"
+      ;;
+    s)
+        ss=${s}
+        echo -e "Shard ${ss} selected.\n"
+        ;;
+    ?)
+      echo -e "\nOption not recognized. Need help message here.\n" >&2
+      exit 1
+      ;;
+  esac
+done
+shift "$(($OPTIND -1))"
+
+echo -e "inc_mainnet_${nn} complete, restarting docker now.\n"
+
+docker start inc_mainnet_${nn}
