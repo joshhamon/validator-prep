@@ -3,14 +3,15 @@
 while getopts 'n:bs:' OPTION; do
   case "$OPTION" in
     n)
-        echo -e "Preparing inc_mainnet_$n \n"
+      n="$OPTARG"
+      echo -e "Preparing inc_mainnet_$n \n"
       docker stop inc_mainnet_$n
       ;;
     b)
       echo -e "You have supplied the -b option, the beacon will be bootstrapped.\n"
       ;;
     s)
-        ss=$s
+        ss="OPTARG"
         echo -e "Shard $ss selected.\n"
         ;;
     ?)
@@ -23,4 +24,6 @@ shift "$(($OPTIND -1))"
 
 echo -e "inc_mainnet_${nn} complete, restarting docker now.\n"
 
-docker start inc_mainnet_${nn}
+docker start inc_mainnet_$n
+
+echo -e "\n\nscript complete, what's next boss?\n"
