@@ -6,13 +6,15 @@
 dataDir="/datastore/incognito/node_data_"
 fileDir="/root/"
 
-while getopts 'n:bs:' OPTION; do
-if [ $# -ne 1 ]; then
+# Checking for flags
+if [ $# -gt -1 ]; then
 	echo "Error: Invalid number of arguments.\n 
     Format arguements as [-n # for node_data_n REQUIRED, -b if you want the beacon bootstrapped and/or -s # for the shard you want bootstrapped].\n
     Exiting now\n\n"
  	exit 1
 fi
+
+while getopts 'n:bs:' OPTION; do
   case "$OPTION" in
     n)
       n="$OPTARG"
