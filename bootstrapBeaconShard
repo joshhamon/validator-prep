@@ -7,8 +7,8 @@ dataDir="/datastore/incognito/node_data_"
 fileDir="/root/"
 
 # Checking for flags
-if ! [ $# =~ ^[0-9]+$ ]; then
-	echo -e "Error: Invalid number of arguments.\n 
+if ! [[ $# =~ ^[0-9]+$ ]]; then
+	echo -e "\n Error: Invalid number of arguments.\n 
     Format arguements as [-n # for node_data_n REQUIRED, -b if you want the beacon bootstrapped and/or -s # for the shard you want bootstrapped].\n
     Exiting now\n\n"
  	exit 1
@@ -18,7 +18,7 @@ while getopts 'n:bs:' OPTION; do
   case "$OPTION" in
     n)
       n="$OPTARG"
-      if ! [ $n =~ ^[0-9]+$ ]; then
+      if ! [[ $n =~ ^[0-9]+$ ]]; then
         echo -e "Error: -n requires an integer"
         exit 1
       fi
