@@ -1,14 +1,24 @@
 #!/bin/bash
 
+# This script expects a minimum of 2 arguements. n for which node you are working on and b and/or s. b will 
+
+#Update dir variables as needed
+$dataDir="/datastore/incognito/node_data_"
+$fileDir="/root/"
+
 while getopts 'n:bs:' OPTION; do
   case "$OPTION" in
     n)
       n="$OPTARG"
-      echo -e "Preparing inc_mainnet_$n \n"
+      echo -e "\nPreparing inc_mainnet_$n \n"
       docker stop inc_mainnet_$n
       ;;
     b)
-      echo -e "You have supplied the -b option, the beacon will be bootstrapped.\n"
+        echo -e "You have supplied the -b option, the beacon will be bootstrapped.\n"
+        rm -rfv $dataDir$n/mainnet/block/beacon
+        bs=$fileDir"beacon.tar.zst"
+        tar -I zstd -xvf $bs --directory=$dataDir$n/mainnet/block
+        echo -e "\n-b option complete\n"
       ;;
     s)
         ss="$OPTARG"
