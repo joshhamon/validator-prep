@@ -11,7 +11,7 @@ while getopts 'n:bs:' OPTION; do
       echo -e "You have supplied the -b option, the beacon will be bootstrapped.\n"
       ;;
     s)
-        ss="OPTARG"
+        ss="$OPTARG"
         echo -e "Shard $ss selected.\n"
         ;;
     ?)
