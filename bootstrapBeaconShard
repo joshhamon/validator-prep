@@ -15,7 +15,7 @@ while getopts 'n:bs:' OPTION; do
         echo -e "Shard $ss selected.\n"
         ;;
     ?)
-      echo -e "\nOption not recognized. Need help message here.\n" >&2
+      echo -e "\nOption not recognized. Format arguements as [-n for node_data_n, -b if you want the beacon bootstrapped and -s for the shard you want bootstrapped].\n" >&2
       exit 1
       ;;
   esac
