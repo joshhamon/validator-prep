@@ -3,8 +3,8 @@
 # This script expects a minimum of 2 arguements. n for which node you are working on and b and/or s. b will 
 
 #Update dir variables as needed
-$dataDir="/datastore/incognito/node_data_"
-$fileDir="/root/"
+dataDir="/datastore/incognito/node_data_"
+fileDir="/root/"
 
 while getopts 'n:bs:' OPTION; do
   case "$OPTION" in
