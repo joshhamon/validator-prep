@@ -7,6 +7,12 @@ dataDir="/datastore/incognito/node_data_"
 fileDir="/root/"
 
 while getopts 'n:bs:' OPTION; do
+if [ $# -ne 1 ]; then
+	echo "Error: Invalid number of arguments.\n 
+    Format arguements as [-n # for node_data_n REQUIRED, -b if you want the beacon bootstrapped and/or -s # for the shard you want bootstrapped].\n
+    Exiting now\n\n"
+ 	exit 1
+fi
   case "$OPTION" in
     n)
       n="$OPTARG"
@@ -17,22 +23,26 @@ while getopts 'n:bs:' OPTION; do
         echo -e "You have supplied the -b option, the beacon will be bootstrapped.\n"
         rm -rfv $dataDir$n/mainnet/block/beacon
         bs=$fileDir"beacon.tar.zst"
-        tar -I zstd -xvf $bs --directory=$dataDir$n/mainnet/block
+        tar -I zstd -xvf $bs --directory=$dataDir$n/mainnet/block/
         echo -e "\n-b option complete\n"
       ;;
     s)
-        ss="$OPTARG"
-        echo -e "Shard $ss selected.\n"
+        s="$OPTARG"
+        echo -e "Shard $s selected.\n"
+        rm -rfv $dataDir$n/mainnet/block/shard*
+        ss=$fileDir$s".tar.zst"
+        tar -I zstd -xvf $ss --directory=$dataDir$n/mainnet/block/
+        echo -e "\n-s option complete\n"
         ;;
     ?)
-      echo -e "\nOption not recognized. Format arguements as [-n for node_data_n, -b if you want the beacon bootstrapped and -s for the shard you want bootstrapped].\n" >&2
+      echo -e "\nOption not recognized. Format arguements as [-n # for node_data_n REQUIRED, -b if you want the beacon bootstrapped and/or -s # for the shard you want bootstrapped].\n" >&2
       exit 1
       ;;
   esac
 done
 shift "$(($OPTIND -1))"
 
-echo -e "inc_mainnet_${nn} complete, restarting docker now.\n"
+echo -e "\nRestarting docker now.\n"
 
 docker start inc_mainnet_$n
 
