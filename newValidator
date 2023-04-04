@@ -90,16 +90,16 @@ sudo apt-get upgrade -y
 dvm --version
 deno --version
 
-echo ***
-echo *
+echo ---
+echo -
 echo  next:
 echo nano $HOME/.bashrc
 echo export DENO_INSTALL="/root/.deno"
 echo export PATH="$DENO_INSTALL/bin:$PATH" 
 echo close file
 echo . .bashrc  
-echo *
-echo ***
+echo -
+echo ---
 
 sleep 3 
 
