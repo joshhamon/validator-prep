@@ -1,0 +1,120 @@
+#!/bin/bash
+
+# BETA for taking a new host from 0 to ready for keys - DO NOT USE without EXTREME CARE
+
+# Set the following variables as needed:
+echo Choose timezone. If unsure, exit and use timedatectl list-timezones
+read tz
+echo Enter git username
+read un
+echo Enter git user email
+read ue
+
+sudo timedatectl set-timezone America/$tz
+echo timezone changed to $tz
+sleep 2 
+
+sudo apt-get upgrade -y
+sudo apt-get update -y
+sudo apt install git -y
+echo git installed, configuring with your variables 
+sleep 2
+
+git config --global user.name "$un"
+git config --global user.email "$ue"
+
+sudo apt-get install curl docker.io -y
+curl and docker installed
+sleep 2
+
+curl -O https://raw.githubusercontent.com/incognitochain/incognito-chain/production/bin/blink.sh && chmod +x blink.sh
+echo - 
+echo - incognito node installer downloaded
+echo - 
+sleep 2
+
+wget https://bootstrap.incognito.org/bootstrap.sh && sudo chmod +x bootstrap.sh
+echo bootstrap installed
+
+sudo apt install axel zstd -y
+sudo apt-get install unzip -y
+echo axel zstd and unzip installed
+sleep 2
+ 
+curl -fsSL https://deno.land/x/install/install.sh | sh
+sleep 2
+echo deno installed  
+sleep 2
+export DENO_INSTALL="/root/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH" 
+
+curl -fsSL https://dvm.deno.dev | sh
+
+sleep 3
+source /root/.bash_profile
+
+dvm install 1.29.0
+dvm use 1.29.0
+
+git clone https://github.com/J053Fabi0/Duplicated-files-cleaner-Incognito.git
+cd Duplicated-files-cleaner-Incognito
+cp constants.example1.ts constants.ts # Removes extra constants files and renames example1. Update as needed for your purposes
+rm constants.example1.ts
+rm constants.example2.ts
+rm constants.example3.ts
+ 
+cd ..
+
+sleep 2
+apt install htop
+echo
+echo htop installed  
+echo
+sleep 2
+
+sudo apt-get upgrade -y
+sudo apt-get update -y
+
+git clone https://github.com/joshhamon/validator-prep.git 
+  
+sleep 2
+
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+sudo apt-get install speedtest
+
+sleep 3 
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+dvm --version
+deno --version
+
+echo ***
+echo *
+echo  next:
+echo nano $HOME/.bashrc
+echo export DENO_INSTALL="/root/.deno"
+echo export PATH="$DENO_INSTALL/bin:$PATH" 
+echo close file
+echo . .bashrc  
+echo *
+echo ***
+
+sleep 3 
+
+echo -
+echo -
+echo Need to mount a partition? https://contabo.com/blog/mounting-additional-hard-disks-linux/
+echo -
+echo Need to move docker? https://linuxconfig.org/how-to-move-docker-s-default-var-lib-docker-to-another-directory-on-ubuntu-debian-linux
+echo -
+echo -
+
+echo ————————————————
+echo Edge of the map
+echo ————————————————
+echo Have a nice day
+echo ————————————————
+
+
