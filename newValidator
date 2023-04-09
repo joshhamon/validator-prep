@@ -74,9 +74,10 @@ sleep 2
 
 # install incognito-cli
 apt install golang-go -y
-git clone https://github.com/incognitochain/incognito-cli.git
-echo incognito-cli installed
-
+wget https://github.com/incognitochain/incognito-cli/releases/download/v2.1.0-alpha/executable_linux.zip
+unzip executable_linux.zip
+rm executable_linux.zip
+echo incognito-cli installed, use ./incognito-cli help 
 
 sleep 5
 
