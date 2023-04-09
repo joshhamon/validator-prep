@@ -72,6 +72,14 @@ echo htop installed
 echo
 sleep 2
 
+# install incognito-cli
+apt install golang-go -y
+git clone https://github.com/incognitochain/incognito-cli.git
+echo incognito-cli installed
+
+
+sleep 5
+
 sudo apt-get upgrade -y
 sudo apt-get update -y
 
