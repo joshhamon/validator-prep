@@ -1,8 +1,17 @@
 #!/bin/bash
 
-# BETA for taking a new host from 0 to ready for keys - DO NOT USE without EXTREME CARE
+# ALPHA version for taking a new host from 0 to ready for keys - DO NOT USE without EXTREME CARE
 
 # Set the following variables as needed:
+echo This script is far from ready for general use, please review the file in detail before using. Please press control+C to exit.
+sleep 1
+echo You assume all risk for continued use of this script.
+sleep 1
+echo You have been warned
+sleep 1
+echo Beginning script...
+sleep 1
+
 echo Choose timezone. If unsure, exit and use timedatectl list-timezones
 read tz
 echo Enter git username

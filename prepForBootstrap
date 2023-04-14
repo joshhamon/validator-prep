@@ -2,7 +2,7 @@
 
 # downloads a fresh copy of the beacon and all shards to $H, remove any existing tar files
 
-#set download location, root is default
+# set download location, root is default
 H=/root/
 
 # check for axel
