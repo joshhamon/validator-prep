@@ -12,7 +12,7 @@ TOOLS:
         If -s, it will remove the ...node/mainnet/block/shard* folders
             It will then tar the shard bootstrap file.
     newValidator
-        BETA file - intended to take a fresh ubuntu host from new to being ready for incognito keys.
+        ALPHA version - intended to take a fresh ubuntu host from new to being ready for incognito keys.
         USE AT YOUR OWN RISK
 
     prepForBootstrap
