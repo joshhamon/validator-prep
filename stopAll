@@ -1,4 +1,5 @@
 # stops all incognito docker containers
+# use -p to prune all stopped containers (including non-inc_mainnet_* containers)
 
 echo -e "Attempting to stop any containers named inc_mainnet_*\n"
 docker container stop $(docker container ls -q --filter name=inc_mainnet_*)
