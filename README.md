@@ -1,8 +1,9 @@
-This repo is a place for me to store scripts for use in managing incognito validators. Enjoy at your own risk, no warranty expressed or implied. Your mileage may very.
+This repo is a place for me to store scripts for use in managing incognito validators. Enjoy at your own risk, no warranty expressed or implied. Your mileage may vary.
 
 Learn more about the overall project at incognito.org
 
 TOOLS:
+    
     bootsrapBeaconShard [-n node OPTIONAL -b -s shard]
         Assumes you have bootstrap files already!
         Open the file and set the directorys for bootstrap and node data files
