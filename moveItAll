@@ -1,4 +1,4 @@
-#! bin/bash/
+#!/bin/bash
 
 # This script is designed to cycle through all of your vNodes and move all of your PRV to one main account
 # It will leave a reserve amount in each account
